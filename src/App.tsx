@@ -3,6 +3,8 @@ import HomePage from "./pages/HomePage/HomePage";
 import TeachersPage from "./pages/TeachersPage/TeachersPage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import Layout from "./components/Layout/Layout";
+import ModalContainer from "./components/ModalContainer/ModalContainer";
+import ModalContent from "./components/ModalContent/ModalContent";
 
 const App = () => {
   return (
@@ -14,6 +16,10 @@ const App = () => {
           <Route path="/favorites" element={<FavoritesPage />} />
         </Route>
       </Routes>
+
+      <ModalContainer>
+        <ModalContent />
+      </ModalContainer>
     </>
   );
 };

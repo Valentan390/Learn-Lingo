@@ -6,14 +6,9 @@ import {
   StyledHeroReviewsText,
   StyledHeroReviewsWrapper,
 } from "./HeroReviews.styled";
+import { reviews } from "../../helpers/ComponentData";
 
 const HeroReviews: FC = () => {
-  const reviews = [
-    { quantity: "32,000", text: "Experienced<br /> tutors" },
-    { quantity: "300,000", text: "5-star tutor<br /> reviews" },
-    { quantity: "120", text: "Subjects<br /> taught" },
-    { quantity: "200", text: "Tutor<br /> nationalities" },
-  ];
   return (
     <StyledHeroReviewsWrapper>
       <StyledHeroReviewsList>

@@ -6,6 +6,7 @@ import {
   StyledHeroTextTitle,
   StyledHeroTextWrapper,
 } from "./HeroText.styled";
+import Icon from "../Icon/Icon";
 
 const HeroText: FC = () => {
   return (
@@ -19,7 +20,9 @@ const HeroText: FC = () => {
         Elevate your language proficiency to new heights by connecting with
         highly qualified and experienced tutors.
       </StyledHeroText>
-      <StyledHeroTextLink to={"/teachers"}>Get started</StyledHeroTextLink>
+      <StyledHeroTextLink to={"/teachers"}>
+        Get started <Icon iconName="icon-Arrow16" width="16px" height="16px" />
+      </StyledHeroTextLink>
     </StyledHeroTextWrapper>
   );
 };

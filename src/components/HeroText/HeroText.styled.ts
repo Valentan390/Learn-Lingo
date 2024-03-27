@@ -40,7 +40,8 @@ export const StyledHeroText = styled.p`
 
 export const StyledHeroTextLink = styled(Link)`
   display: inline-flex;
-  padding: 16px 88px;
+  gap: 16px;
+  padding: 16px 80px;
   justify-content: center;
   align-items: center;
   border-radius: 12px;
@@ -53,6 +54,6 @@ export const StyledHeroTextLink = styled(Link)`
 
   &:hover,
   &:focus {
-    background: var(--lightYellow);
+    background: var(--mustard);
   }
 `;

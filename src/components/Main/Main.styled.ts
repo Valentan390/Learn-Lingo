@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const StyledMain = styled.main``;
 
-export const StyledMainSection = styled.section``;
+export const StyledMainSection = styled.section`
+  padding-bottom: 32px;
+`;
 
 export const StyledMainWrapper = styled.div`
   display: flex;

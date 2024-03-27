@@ -3,20 +3,10 @@ import {
   StyledNavigationNavLink,
   StyledNavigationWrapper,
 } from "./Navigation.styled";
+import { registered, unregistered } from "../../helpers/ComponentData";
 
 const Navigation: FC = () => {
-  const unregistered = [
-    { to: "/", text: "Home" },
-    { to: "/teachers", text: "Teachers" },
-  ];
-
-  const registered = [
-    { to: "/", text: "Home" },
-    { to: "/teachers", text: "Teachers" },
-    { to: "/favorites", text: "Favorites" },
-  ];
-
-  const isAuthUser = true;
+  const isAuthUser = false;
   return (
     <StyledNavigationWrapper>
       {(isAuthUser ? registered : unregistered).map((link, index) => (

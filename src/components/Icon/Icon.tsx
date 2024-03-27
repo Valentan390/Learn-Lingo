@@ -9,11 +9,11 @@ interface IconProps {
 
 const Icon: FC<IconProps> = ({ iconName, width, height }) => {
   return (
-    <div>
+    <>
       <svg style={{ width, height }}>
         <use href={`${sprite}#${iconName}`} />
       </svg>
-    </div>
+    </>
   );
 };
 

@@ -9,7 +9,7 @@ export const StyledUserAuthWrapper = styled.div`
 
 export const StyledUserAutButtonSinIn = styled.button`
   display: flex;
-  padding: 11px 39px;
+  padding: 14px 39px;
   justify-content: center;
   align-items: center;
   gap: 8px;
