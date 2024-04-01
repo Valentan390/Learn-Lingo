@@ -4,9 +4,10 @@ import Navigation from "../Navigation/Navigation";
 import UserAuth from "../UserAuth/UserAuth";
 import UserLogo from "../UserLogo/UserLogo";
 import { StyledHeaderSection, StyledHeaderWrapper } from "./Header.styled";
+import useAuthUser from "../../hooks/useAuthUser";
 
 const Header: FC = () => {
-  const isAuthUser: boolean = false;
+  const { isAuthUser } = useAuthUser();
   return (
     <StyledHeaderSection>
       <StyledHeaderWrapper className="container">

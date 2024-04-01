@@ -16,6 +16,10 @@ import {
   StyledAuthModalWrapper,
 } from "./SignUpAndSignInModal.styled";
 import ButtonClose from "../../Button/ButtonClose/ButtonClose";
+import { useAppDispatch } from "../../../hooks/useReduxHooks";
+import { signInUser, signUpUser } from "../../../redux/user/operationsUser";
+import useModalHandler from "../../../hooks/useModalHandler";
+import { toast } from "react-toastify";
 
 interface SignUpAndSignInModalProps {
   modalType: string;
@@ -23,18 +27,42 @@ interface SignUpAndSignInModalProps {
 
 const SignUpAndSignInModal: FC<SignUpAndSignInModalProps> = ({ modalType }) => {
   const schema = modalType === "SignUp" ? schemaSignUp : schemaSignIn;
+  const dispatch = useAppDispatch();
+  const { handleCloseModal } = useModalHandler();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    // reset,
+    reset,
   } = useForm<FormData>({
     mode: "onTouched",
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit(async (data) => {
+    if (modalType === "SignUp") {
+      try {
+        await dispatch(signUpUser(data));
+        handleCloseModal();
+        reset();
+      } catch (error) {
+        if (error instanceof Error) {
+          toast.error(`${error.message}`);
+        }
+      }
+    } else {
+      try {
+        await dispatch(signInUser(data));
+        handleCloseModal();
+        reset();
+      } catch (error) {
+        if (error instanceof Error) {
+          toast.error(`${error.message}`);
+        }
+      }
+    }
+  });
 
   return (
     <StyledAuthModalWrapper>

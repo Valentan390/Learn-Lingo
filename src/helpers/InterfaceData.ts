@@ -12,3 +12,10 @@ export interface InputAuthProps {
   register: UseFormRegister<FormData>;
   errors: FieldErrors;
 }
+
+export interface User {
+  userName: string;
+  userEmail: string;
+  id: string;
+  token: string;
+}

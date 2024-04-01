@@ -5,8 +5,18 @@ import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import Layout from "./components/Layout/Layout";
 import ModalContainer from "./components/ModalContainer/ModalContainer";
 import ModalContent from "./components/ModalContent/ModalContent";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useAppDispatch } from "./hooks/useReduxHooks";
+import { useEffect } from "react";
+import { refreshUser } from "./redux/user/operationsUser";
 
 const App = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
   return (
     <>
       <Routes>
@@ -20,6 +30,8 @@ const App = () => {
       <ModalContainer>
         <ModalContent />
       </ModalContainer>
+
+      <ToastContainer position="top-center" autoClose={5000} />
     </>
   );
 };

@@ -1,3 +1,5 @@
+import useAuthUser from "../../hooks/useAuthUser";
+import useModalHandler from "../../hooks/useModalHandler";
 import {
   StyledUserLogoButtonLogOut,
   StyledUserLogoUser,
@@ -6,12 +8,16 @@ import {
 } from "./UserLogo.styled";
 
 const UserLogo = () => {
-  const userName = "Valentyn";
+  const { userName } = useAuthUser();
+  const { handleOpenModal } = useModalHandler();
   return (
     <StyledUserLogoWrapper>
       <StyledUserLogoUser>{userName[0].toUpperCase()}</StyledUserLogoUser>
       <StyledUserLogoUserName>{userName}</StyledUserLogoUserName>
-      <StyledUserLogoButtonLogOut type="button">
+      <StyledUserLogoButtonLogOut
+        type="button"
+        onClick={() => handleOpenModal("LogOut")}
+      >
         Log out
       </StyledUserLogoButtonLogOut>
     </StyledUserLogoWrapper>
