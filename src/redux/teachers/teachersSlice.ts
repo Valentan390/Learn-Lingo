@@ -21,6 +21,14 @@ const handlePendingAction: CaseReducer<InitialState> = (state) => {
   state.isLoadingTeachers = true;
 };
 
+const handlefulFilledAction: CaseReducer<
+  InitialState,
+  PayloadAction<Teachers[]>
+> = (state, action) => {
+  state.isLoadingTeachers = false;
+  state.teachers = [...state.teachers, ...action.payload];
+};
+
 const handleRejectedAction: CaseReducer<
   InitialState,
   PayloadAction<string | undefined>
@@ -40,10 +48,7 @@ export const teachersSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchTeachers.pending, handlePendingAction)
-      .addCase(fetchTeachers.fulfilled, (state, action) => {
-        state.isLoadingTeachers = false;
-        state.teachers = [...state.teachers, ...action.payload];
-      })
+      .addCase(fetchTeachers.fulfilled, handlefulFilledAction)
       .addCase(fetchTeachers.rejected, handleRejectedAction);
   },
 });
