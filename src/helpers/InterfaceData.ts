@@ -19,3 +19,24 @@ export interface User {
   id: string;
   token: string;
 }
+
+export interface Teachers {
+  avatar_url: string;
+  experience: string;
+  lesson_info: string;
+  lessons_done: number;
+  name: string;
+  price_per_hour: number;
+  rating: number;
+  surname: string;
+  conditions: [];
+  languages: [];
+  levels: [];
+  reviews: [];
+}
+
+export interface Reviews {
+  comment: string;
+  reviewer_name: string;
+  reviewer_rating: number;
+}

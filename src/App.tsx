@@ -7,16 +7,20 @@ import ModalContainer from "./components/ModalContainer/ModalContainer";
 import ModalContent from "./components/ModalContent/ModalContent";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useAppDispatch } from "./hooks/useReduxHooks";
+import { useAppDispatch, useAppSelector } from "./hooks/useReduxHooks";
 import { useEffect } from "react";
 import { refreshUser } from "./redux/user/operationsUser";
+import { fetchTeachers } from "./redux/teachers/operationsTeachers";
+import { selectCurrentPage } from "./redux/teachers/teachersSelectors";
 
 const App = () => {
   const dispatch = useAppDispatch();
+  const currentPage = useAppSelector(selectCurrentPage);
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, [dispatch]);
+    dispatch(fetchTeachers(currentPage));
+  }, [dispatch, currentPage]);
   return (
     <>
       <Routes>
