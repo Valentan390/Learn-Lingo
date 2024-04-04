@@ -20,6 +20,7 @@ import {
   StyledTeachersItemTextContainer,
 } from "./TeachersItem.styled";
 import TeachersReviews from "../TeachersReviews/TeachersReviews";
+import useModalHandler from "../../hooks/useModalHandler";
 
 interface TeachersItemProps {
   teacher: Teachers;
@@ -27,6 +28,7 @@ interface TeachersItemProps {
 
 const TeachersItem: FC<TeachersItemProps> = ({ teacher }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const { handleOpenModal } = useModalHandler();
 
   return (
     <StyledTeachersItem>
@@ -163,7 +165,16 @@ const TeachersItem: FC<TeachersItemProps> = ({ teacher }) => {
         </StyledTeachersItemLevels>
 
         {showFullDescription && (
-          <StyledTeachersItemButtonLesson type="button">
+          <StyledTeachersItemButtonLesson
+            type="button"
+            onClick={() =>
+              handleOpenModal("TrialLessonModal", {
+                avatar_url: teacher.avatar_url,
+                name: teacher.name,
+                surname: teacher.surname,
+              })
+            }
+          >
             Book trial lesson
           </StyledTeachersItemButtonLesson>
         )}

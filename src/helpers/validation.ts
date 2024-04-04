@@ -2,7 +2,7 @@ import * as yup from "yup";
 
 const emailRegexp = /^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
 
-// const phoneRegexp = /^\d{3}-\d{3}-\d{2}-\d{2}$/;
+const phoneRegexp = /^\d{3}-\d{3}-\d{2}-\d{2}$/;
 
 export const schemaSignUp = yup.object().shape({
   userName: yup
@@ -31,4 +31,21 @@ export const schemaSignIn = yup.object().shape({
     .required("Field is required")
     .min(8, "Minimum 8 characters")
     .max(64, "Maximum 64 characters"),
+});
+
+export const schemaReason = yup.object().shape({
+  fullName: yup
+    .string()
+    .required("Field is required")
+    .min(3, "Minimum 3 characters")
+    .max(64, "Maximum 64 characters"),
+  email: yup
+    .string()
+    .required("Field is required")
+    .matches(emailRegexp, "Enter a correct email"),
+  phoneNumber: yup
+    .string()
+    .required("Field is required")
+    .matches(phoneRegexp, "Enter a correct phone XXX-XXX-XX-XX"),
+  reason: yup.string().required("Field is required"),
 });

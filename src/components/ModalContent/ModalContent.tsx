@@ -2,6 +2,7 @@ import { FC } from "react";
 import SignUpAndSignInModal from "../Modal/SignUpAndSignInModal/SignUpAndSignInModal";
 import useModalHandler from "../../hooks/useModalHandler";
 import LogOutModal from "../Modal/LogOutModal/LogOutModal";
+import TrialLessonModal from "../Modal/TrialLessonModal/TrialLessonModal";
 
 const ModalContent: FC = () => {
   const { contentModal } = useModalHandler();
@@ -13,6 +14,8 @@ const ModalContent: FC = () => {
       return <SignUpAndSignInModal modalType="SignIn" />;
     case "LogOut":
       return <LogOutModal />;
+    case "TrialLessonModal":
+      return <TrialLessonModal />;
     default:
       return null;
   }

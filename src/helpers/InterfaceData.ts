@@ -40,3 +40,16 @@ export interface Reviews {
   reviewer_name: string;
   reviewer_rating: number;
 }
+
+export interface TeacherData {
+  avatar_url: string;
+  name: string;
+  surname: string;
+}
+
+export interface FormDataReason {
+  reason: string;
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+}

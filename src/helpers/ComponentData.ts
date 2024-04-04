@@ -60,3 +60,18 @@ export const containerVariants: Variants = {
     transition: { delay: 0, duration: 0.8 },
   },
 };
+
+export const inputReasons = [
+  {
+    name: "fullName",
+    placeholder: "Full Name",
+  },
+  {
+    name: "email",
+    placeholder: "Email",
+  },
+  {
+    name: "phoneNumber",
+    placeholder: "Phone number",
+  },
+];
