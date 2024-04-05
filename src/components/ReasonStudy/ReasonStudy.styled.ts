@@ -32,10 +32,3 @@ export const StyledReasonStudyLabel = styled.label`
   line-height: 1.37;
   position: relative;
 `;
-
-// export const StyledReasonStudy = styled.``;
-// export const StyledReasonStudy = styled.``;
-// export const StyledReasonStudy = styled.``;
-// export const StyledReasonStudy = styled.``;
-// export const StyledReasonStudy = styled.``;
-// export const StyledReasonStudy = styled.``;

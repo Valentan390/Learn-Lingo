@@ -1,27 +1,18 @@
 import { FC } from "react";
-import sticker1x from "../../images/desctop/sticker1.webp";
-import sticker2x from "../../images/desctop/sticker1@2x.webp";
 import {
-  StyledHeroFotoMac,
   StyledHeroFotoSticker,
   StyledHeroFotoWrapper,
 } from "./HeroFoto.styled";
-import Mac1x from "../../images/desctop/Mac.webp";
-import Mac2x from "../../images/desctop/Mac@2x.webp";
+import block1x from "../../images/desctop/block.webp";
+import block2x from "../../images/desctop/block@2x.webp";
 
 const HeroFoto: FC = () => {
   return (
     <StyledHeroFotoWrapper>
       <StyledHeroFotoSticker
-        srcSet={`${sticker1x} 1x, ${sticker2x} 2x`}
-        src={sticker1x}
+        srcSet={`${block1x} 1x, ${block2x} 2x`}
+        src={block1x}
         alt="sticker"
-      />
-
-      <StyledHeroFotoMac
-        srcSet={`${Mac1x} 1x, ${Mac2x} 2x`}
-        src={Mac1x}
-        alt="Mac"
       />
     </StyledHeroFotoWrapper>
   );

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledHeroFotoWrapper = styled.div`
-  padding: 80px 114px 111px 114px;
   border-radius: 30px;
   background: var(--lightYellow);
   width: calc((100% - 24px) / 2);
@@ -20,6 +19,3 @@ export const StyledHeroFotoMac = styled.img`
   transform: translateX(-50%);
   max-width: 360px;
 `;
-
-// export const StyledHeroFoto = styled.``
-// export const StyledHeroFoto = styled.``

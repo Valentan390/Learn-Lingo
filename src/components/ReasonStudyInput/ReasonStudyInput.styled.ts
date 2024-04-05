@@ -56,9 +56,3 @@ export const StyledReasonStudyInput = styled.input<StyledReasonStudyInputProps>`
         : "0 0 10px rgba(0, 0, 0, 0.3)"};
   }
 `;
-
-// export const StyledReasonStudyInput = styled.``;
-// export const StyledReasonStudyInput = styled.``;
-// export const StyledReasonStudyInput = styled.``;
-// export const StyledReasonStudyInput = styled.``;
-// export const StyledReasonStudyInput = styled.``;

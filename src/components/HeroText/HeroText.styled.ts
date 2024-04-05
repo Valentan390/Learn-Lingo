@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const StyledHeroTextWrapper = styled.div`
   padding: 98px 73px 98px 38px;
   border-radius: 30px;
-  background: var(--lightGrey);
+  background: var(--white);
   width: calc((100% - 24px) / 2);
 `;
 

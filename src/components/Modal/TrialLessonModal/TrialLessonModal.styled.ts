@@ -77,7 +77,3 @@ export const StyledTrialLessonButton = styled.button`
     background: var(--pastelYellow);
   }
 `;
-
-// export const StyledTrialLesson = styled.``;
-// export const StyledTrialLesson = styled.``;
-// export const StyledTrialLesson = styled.``;
