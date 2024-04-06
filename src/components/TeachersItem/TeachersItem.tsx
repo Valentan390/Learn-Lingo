@@ -21,6 +21,13 @@ import {
 } from "./TeachersItem.styled";
 import TeachersReviews from "../TeachersReviews/TeachersReviews";
 import useModalHandler from "../../hooks/useModalHandler";
+import { useAppDispatch, useAppSelector } from "../../hooks/useReduxHooks";
+import { selectFavoriteTeachers } from "../../redux/favorite/favoriteSelectors";
+import useAuthUser from "../../hooks/useAuthUser";
+import {
+  addFavoriteTeachers,
+  deleteFaforiteTeachers,
+} from "../../redux/favorite/operationsFavorite";
 
 interface TeachersItemProps {
   teacher: Teachers;
@@ -29,6 +36,27 @@ interface TeachersItemProps {
 const TeachersItem: FC<TeachersItemProps> = ({ teacher }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
   const { handleOpenModal } = useModalHandler();
+  const favoriteTeachers = useAppSelector(selectFavoriteTeachers);
+  const { isAuthUser } = useAuthUser();
+  const dispatch = useAppDispatch();
+
+  const isFavorite = isAuthUser
+    ? favoriteTeachers?.some(
+        (favoriteTeacher) => favoriteTeacher.name === teacher.name
+      )
+    : false;
+
+  const toggleFavorite: (teacher: Teachers) => void = (teacher) => {
+    if (isAuthUser) {
+      if (isFavorite) {
+        dispatch(deleteFaforiteTeachers(teacher));
+      } else {
+        dispatch(addFavoriteTeachers(teacher));
+      }
+    } else {
+      handleOpenModal("AuthUserModal");
+    }
+  };
 
   return (
     <StyledTeachersItem>
@@ -97,13 +125,16 @@ const TeachersItem: FC<TeachersItemProps> = ({ teacher }) => {
                 {teacher.price_per_hour}$
               </StyledTeachersItemSpanGrin>
             </StyledTeachersItemP>
-            <StyledTeachersItemButtonHeart type="button">
+            <StyledTeachersItemButtonHeart
+              type="button"
+              onClick={() => toggleFavorite(teacher)}
+            >
               <Icon
                 iconName="icon-normal-heart "
                 width="26px"
                 height="26px"
-                fill="none"
-                stroke="var(--black)"
+                fill={isFavorite ? "var(--yellow)" : "none"}
+                stroke={isFavorite ? "none" : "var(--black)"}
               />
             </StyledTeachersItemButtonHeart>
           </StyledTeachersItemLessons>

@@ -1,6 +1,7 @@
 import { CaseReducer, PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { fetchTeachers } from "./operationsTeachers";
 import { Teachers } from "../../helpers/InterfaceData";
+import { nanoid } from "nanoid";
 
 interface InitialState {
   teachers: Teachers[];
@@ -21,12 +22,16 @@ const handlePendingAction: CaseReducer<InitialState> = (state) => {
   state.isLoadingTeachers = true;
 };
 
-const handlefulFilledAction: CaseReducer<
+const handleFulfilledAction: CaseReducer<
   InitialState,
   PayloadAction<Teachers[]>
-> = (state, action) => {
+> = (state, action: PayloadAction<Teachers[]>) => {
   state.isLoadingTeachers = false;
-  state.teachers = [...state.teachers, ...action.payload];
+  const teachersWithIds = action.payload.map((teacher) => ({
+    ...teacher,
+    id: nanoid(),
+  }));
+  state.teachers = [...state.teachers, ...teachersWithIds];
 };
 
 const handleRejectedAction: CaseReducer<
@@ -48,7 +53,7 @@ export const teachersSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchTeachers.pending, handlePendingAction)
-      .addCase(fetchTeachers.fulfilled, handlefulFilledAction)
+      .addCase(fetchTeachers.fulfilled, handleFulfilledAction)
       .addCase(fetchTeachers.rejected, handleRejectedAction);
   },
 });

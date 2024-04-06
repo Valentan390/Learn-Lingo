@@ -33,6 +33,7 @@ export interface Teachers {
   languages: [];
   levels: [];
   reviews: [];
+  id: string;
 }
 
 export interface Reviews {

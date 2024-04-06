@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import TeachersPage from "./pages/TeachersPage/TeachersPage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
@@ -12,13 +12,20 @@ import { useEffect } from "react";
 import { refreshUser } from "./redux/user/operationsUser";
 import { fetchTeachers } from "./redux/teachers/operationsTeachers";
 import { selectCurrentPage } from "./redux/teachers/teachersSelectors";
+import useAuthUser from "./hooks/useAuthUser";
 
 const App = () => {
   const dispatch = useAppDispatch();
   const currentPage = useAppSelector(selectCurrentPage);
+  const { isAuthUser } = useAuthUser();
 
   useEffect(() => {
-    dispatch(refreshUser());
+    if (!isAuthUser) {
+      dispatch(refreshUser());
+    }
+  }, [dispatch, isAuthUser]);
+
+  useEffect(() => {
     dispatch(fetchTeachers(currentPage));
   }, [dispatch, currentPage]);
   return (
@@ -29,6 +36,7 @@ const App = () => {
           <Route path="/teachers" element={<TeachersPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
         </Route>
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
 
       <ModalContainer>

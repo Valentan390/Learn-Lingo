@@ -28,7 +28,7 @@ const ReasonStudy: FC<ReasonStudyProps> = ({ register, errors }) => {
       </StyledReasonStudyTitle>
       <StyledReasonStudyContainer>
         {reasons.map((reason, index) => (
-          <StyledReasonStudyLabel htmlFor="" key={index}>
+          <StyledReasonStudyLabel key={index}>
             <input type="radio" value={reason} {...register("reason")} />
             {reason}
             <StyledError>{String(errors?.reason?.message || "")}</StyledError>

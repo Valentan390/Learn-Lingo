@@ -17,12 +17,19 @@ interface ReasonStudyInputProps {
 }
 
 const ReasonStudyInput: FC<ReasonStudyInputProps> = ({ register, errors }) => {
+  const getInputType: (name: string) => "tel" | "email" | "text" = (name) => {
+    if (name === "phoneNumber") {
+      return "tel";
+    } else {
+      return name === "email" ? "email" : "text";
+    }
+  };
   return (
     <StyledReasonStudyInputWrapper>
       {inputReasons.map((inputReason, index) => (
         <StyledReasonStudyInputLabel key={index}>
           <StyledReasonStudyInput
-            type="text"
+            type={getInputType(inputReason.name)}
             placeholder={inputReason.placeholder}
             $error={!!errors[inputReason.name as Name]}
             {...register(inputReason.name as Name)}
