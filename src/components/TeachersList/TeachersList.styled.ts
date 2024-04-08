@@ -27,6 +27,3 @@ export const StyledTeachersListLoadMore = styled.button`
     color: var(--white);
   }
 `;
-
-// export const StyledTeachersList = styled.``
-// export const StyledTeachersList = styled.``

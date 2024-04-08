@@ -13,6 +13,7 @@ import { refreshUser } from "./redux/user/operationsUser";
 import { fetchTeachers } from "./redux/teachers/operationsTeachers";
 import { selectCurrentPage } from "./redux/teachers/teachersSelectors";
 import useAuthUser from "./hooks/useAuthUser";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -34,7 +35,13 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/teachers" element={<TeachersPage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
+          {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
+          <Route
+            path="/favorites"
+            element={
+              <PrivateRoute redirectTo="/teachers" component={FavoritesPage} />
+            }
+          />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
