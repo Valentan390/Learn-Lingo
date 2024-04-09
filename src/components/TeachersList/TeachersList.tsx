@@ -1,6 +1,9 @@
 import { FC } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/useReduxHooks";
-import { selectTeachers } from "../../redux/teachers/teachersSelectors";
+import {
+  getFilterTeachers,
+  selectTeachers,
+} from "../../redux/teachers/teachersSelectors";
 import TeachersItem from "../TeachersItem/TeachersItem";
 import { setCurrentPage } from "../../redux/teachers/teachersSlice";
 import {
@@ -11,11 +14,13 @@ import {
 const TeachersList: FC = () => {
   const teachers = useAppSelector(selectTeachers);
   const dispatch = useAppDispatch();
+  const filterTeachers = useAppSelector(getFilterTeachers);
+  console.log(filterTeachers);
 
   return (
     <>
       <StyledTeachersListWrapper>
-        {teachers?.map((teacher, index) => (
+        {filterTeachers?.map((teacher, index) => (
           <TeachersItem key={index} teacher={teacher} />
         ))}
       </StyledTeachersListWrapper>

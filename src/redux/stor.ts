@@ -3,6 +3,7 @@ import { modalReducer } from "./modal/modalSlice";
 import { userReduser } from "./user/userSlice";
 import { teachersReduser } from "./teachers/teachersSlice";
 import { favoriteReduser } from "./favorite/favoriteSlice";
+import { filterReducer } from "./filter/filterSlise";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     user: userReduser,
     teachers: teachersReduser,
     favorites: favoriteReduser,
+    filterTeachers: filterReducer,
   },
 });
 

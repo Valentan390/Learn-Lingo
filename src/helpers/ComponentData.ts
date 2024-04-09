@@ -1,4 +1,5 @@
 import { Variants } from "framer-motion";
+import { SelectOptions } from "./InterfaceData";
 
 export const reviews = [
   { quantity: "32,000", text: "Experienced<br /> tutors" },
@@ -73,5 +74,78 @@ export const inputReasons = [
   {
     name: "phoneNumber",
     placeholder: "Phone number",
+  },
+];
+
+export const optionsLanguages: SelectOptions[] = [
+  {
+    value: "French",
+    label: "French",
+  },
+  {
+    value: "English",
+    label: "English",
+  },
+  {
+    value: "German",
+    label: "German",
+  },
+  {
+    value: "Ukrainian",
+    label: "Ukrainian",
+  },
+  {
+    value: "Polish",
+    label: "Polish",
+  },
+  {
+    value: "",
+    label: "NoFilter",
+  },
+];
+
+export const optionsLevelKnowledge: SelectOptions[] = [
+  {
+    value: "A1 Beginner",
+    label: "A1 Beginner",
+  },
+  {
+    value: "A2 Elementary",
+    label: "A2 Elementary",
+  },
+  {
+    value: "B1 Intermediate",
+    label: "B1 Intermediate",
+  },
+  {
+    value: "B2 Upper-Intermediate",
+    label: "B2 Upper-Intermediate",
+  },
+  {
+    value: "",
+    label: "NoFilter",
+  },
+];
+
+export const optionsPrice: SelectOptions[] = [
+  {
+    value: "10",
+    label: "10 $",
+  },
+  {
+    value: "20",
+    label: "20 $",
+  },
+  {
+    value: "30",
+    label: "30 $",
+  },
+  {
+    value: "40",
+    label: "40 $",
+  },
+  {
+    value: "",
+    label: "NoFilter",
   },
 ];

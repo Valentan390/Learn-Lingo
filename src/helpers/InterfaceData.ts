@@ -29,9 +29,9 @@ export interface Teachers {
   price_per_hour: number;
   rating: number;
   surname: string;
-  conditions: [];
-  languages: [];
-  levels: [];
+  conditions: string[];
+  languages: string[];
+  levels: string[];
   reviews: [];
   id: string;
 }
@@ -53,4 +53,15 @@ export interface FormDataReason {
   fullName: string;
   email: string;
   phoneNumber: string;
+}
+
+export interface SelectOptions {
+  value: string;
+  label: string;
+}
+
+export interface FilterTeachers {
+  languages: string;
+  levelKnowledge: string;
+  price: string;
 }
