@@ -115,7 +115,6 @@ export const refreshUser = createAsyncThunk<
     });
     const data = createUserData(user);
     if (data) {
-      toast.success("User data successful.");
       return data;
     } else {
       throw new Error("User data not available");

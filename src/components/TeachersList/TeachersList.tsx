@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/useReduxHooks";
 import {
   getFilterTeachers,
   selectTeachers,
+  selectisLoadingTeachers,
 } from "../../redux/teachers/teachersSelectors";
 import TeachersItem from "../TeachersItem/TeachersItem";
 import { setCurrentPage } from "../../redux/teachers/teachersSlice";
@@ -13,6 +14,7 @@ import {
 import { useLocation } from "react-router-dom";
 import { getFilterFavoriteTeachers } from "../../redux/favorite/favoriteSelectors";
 import NoData from "../NoData/NoData";
+import LoaderTailSpin from "../LoaderTailSpin/LoaderTailSpin";
 
 const TeachersList: FC = () => {
   const { pathname } = useLocation();
@@ -20,6 +22,7 @@ const TeachersList: FC = () => {
   const dispatch = useAppDispatch();
   const filterTeachers = useAppSelector(getFilterTeachers);
   const filterFavoriteTeachers = useAppSelector(getFilterFavoriteTeachers);
+  const isLoadingTeachers = useAppSelector(selectisLoadingTeachers);
 
   const renderTeachers =
     pathname === "/teachers" ? filterTeachers : filterFavoriteTeachers;
@@ -68,6 +71,8 @@ const TeachersList: FC = () => {
           ))}
         </StyledTeachersListWrapper>
       )}
+
+      {pathname === "/teachers" && isLoadingTeachers && <LoaderTailSpin />}
 
       {pathname === "/teachers" &&
         teachers.length < 29 &&

@@ -21,8 +21,7 @@ export const StyledTeachersListLoadMore = styled.button`
   margin-right: auto;
   transition: var(--transition);
 
-  &:hover,
-  &:focus {
+  &:hover {
     background: var(--blue);
     color: var(--white);
   }
