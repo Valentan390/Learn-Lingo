@@ -1,30 +1,42 @@
-# React + TypeScript + Vite
+# LEARN-LINGO - application for companies offering foreign language teacher services.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![LEARN-LINGO Image](/src/images/desctop/LearnLingoScreenshot.webp)
 
-Currently, two official plugins are available:
+## Review
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+LEARN-LINGO - is a web application designed to help users select, save and order teacher services, as well as sign up for a trial lesson.
 
-## Expanding the ESLint configuration
+## Functions
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **User-friendly interface:** The application has an intuitive interface that allows users to easily navigate and select teachers based on various criteria.
 
-- Configure the top-level `parserOptions` property like this:
+- **Filtering teachers:** users can select teachers based on the language taught, the price per hour of instruction, and the level of knowledge of the students.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Saving selected teachers:** Users have the ability to save and view their favorite teachers on the app's favorites page.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Application
+
+**1. Go to link:**
+
+- [https://learn-lingo-livid.vercel.app/]
+
+**2. Register:**
+
+- register or log in to your account.
+
+**3. Choose a psychologist:**
+
+- On the teachers page, select the teacher you like.
+
+**4. Make an appointment:**
+
+- After choosing a teacher, fill out and submit the registration form for a trial lesson.
+
+## Technologies Used in the Project
+
+- HTML5
+- CSS
+- JavaScript
+- TypeScript
+- React
+- Redux
