@@ -61,7 +61,13 @@ export interface SelectOptions {
 }
 
 export interface FilterTeachers {
-  languages: string;
-  levelKnowledge: string;
-  price: string;
+  languages: SelectOptions;
+  levelKnowledge: SelectOptions;
+  price: SelectOptions;
+}
+
+export interface FilterOption {
+  options: SelectOptions[];
+  label: string;
+  name: keyof FilterTeachers;
 }

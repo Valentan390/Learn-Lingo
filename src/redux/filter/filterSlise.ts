@@ -1,15 +1,26 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { FilterTeachers } from "../../helpers/InterfaceData";
+import {
+  optionsLanguages,
+  optionsLevelKnowledge,
+  optionsPrice,
+} from "../../helpers/ComponentData";
 
 interface InitialState {
   filterTeachers: FilterTeachers;
+  filterFavoriteTeachers: FilterTeachers;
 }
 
 const initialState: InitialState = {
   filterTeachers: {
-    languages: "",
-    levelKnowledge: "",
-    price: "",
+    languages: optionsLanguages[5],
+    levelKnowledge: optionsLevelKnowledge[4],
+    price: optionsPrice[4],
+  },
+  filterFavoriteTeachers: {
+    languages: optionsLanguages[5],
+    levelKnowledge: optionsLevelKnowledge[4],
+    price: optionsPrice[4],
   },
 };
 
@@ -22,9 +33,18 @@ export const filterSlice = createSlice({
         state.filterTeachers = action.payload;
       }
     },
+    setFilterFavoriteTeachers: (
+      state,
+      action: PayloadAction<FilterTeachers>
+    ) => {
+      if (action.payload) {
+        state.filterFavoriteTeachers = action.payload;
+      }
+    },
   },
 });
 
-export const { setFilterTeachers } = filterSlice.actions;
+export const { setFilterTeachers, setFilterFavoriteTeachers } =
+  filterSlice.actions;
 
 export const filterReducer = filterSlice.reducer;

@@ -5,9 +5,9 @@ import {
   StyledNoFavoritesImg,
   StyledNoFavoritesText,
   StyledNoFavoritesWrapper,
-} from "./NoFavorites.styled";
+} from "./NoData.styled";
 
-const NoFavorites: FC = () => {
+const NoData: FC = () => {
   return (
     <StyledNoFavoritesWrapper>
       <StyledNoFavoritesImg
@@ -15,12 +15,9 @@ const NoFavorites: FC = () => {
         src={`${sticker1x}`}
         alt="sticker"
       />
-      <StyledNoFavoritesText>
-        You haven't added teachers to favorites yet. Please add your favorite
-        teachers to your favorites on the teachers page.
-      </StyledNoFavoritesText>
+      <StyledNoFavoritesText>No data available.</StyledNoFavoritesText>
     </StyledNoFavoritesWrapper>
   );
 };
 
-export default NoFavorites;
+export default NoData;

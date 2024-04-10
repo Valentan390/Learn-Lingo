@@ -18,24 +18,25 @@ export const getFilterTeachers = createSelector(
   [selectTeachers, selectFilterTeachers],
   (teachers, filter) => {
     return teachers.filter((teacher) => {
+      const { languages, levelKnowledge, price } = filter;
       if (
-        filter.price &&
-        filter.price.length > 0 &&
-        teacher.price_per_hour < Number(filter.price)
+        price.value &&
+        price.value.length > 0 &&
+        teacher.price_per_hour < Number(price.value)
       ) {
         return false;
       }
       if (
-        filter.languages &&
-        filter.languages.length > 0 &&
-        teacher.languages.indexOf(filter.languages) === -1
+        languages.value &&
+        languages.value.length > 0 &&
+        teacher.languages.indexOf(languages.value) === -1
       ) {
         return false;
       }
       if (
-        filter.levelKnowledge &&
-        filter.levelKnowledge.length > 0 &&
-        teacher.levels.indexOf(filter.levelKnowledge) === -1
+        levelKnowledge.value &&
+        levelKnowledge.value.length > 0 &&
+        teacher.levels.indexOf(levelKnowledge.value) === -1
       ) {
         return false;
       }

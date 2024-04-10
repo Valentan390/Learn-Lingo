@@ -1,19 +1,19 @@
 import { FC } from "react";
 import { useAppSelector } from "../../hooks/useReduxHooks";
-import { selectFavoriteTeachers } from "../../redux/favorite/favoriteSelectors";
+import { getFilterFavoriteTeachers } from "../../redux/favorite/favoriteSelectors";
 import TeachersItem from "../TeachersItem/TeachersItem";
-import NoFavorites from "../NoFavorites/NoFavorites";
+import NoFavorites from "../NoData/NoData";
 import { StyledTeachersListWrapper } from "../TeachersList/TeachersList.styled";
 
 const FavoriteTeachersList: FC = () => {
-  const favoriteTeachers = useAppSelector(selectFavoriteTeachers);
+  const filterFavoriteTeachers = useAppSelector(getFilterFavoriteTeachers);
   return (
     <>
-      {favoriteTeachers.length <= 0 ? (
+      {filterFavoriteTeachers.length <= 0 ? (
         <NoFavorites />
       ) : (
         <StyledTeachersListWrapper>
-          {favoriteTeachers.map((favoriteTeacher, index) => (
+          {filterFavoriteTeachers.map((favoriteTeacher, index) => (
             <TeachersItem key={index} teacher={favoriteTeacher} />
           ))}
         </StyledTeachersListWrapper>

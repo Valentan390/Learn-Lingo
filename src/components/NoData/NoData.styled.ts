@@ -21,6 +21,8 @@ export const StyledNoFavoritesImg = styled.img`
 `;
 
 export const StyledNoFavoritesText = styled.h3`
+  display: flex;
+  justify-content: center;
   font-size: 40px;
   font-weight: var(--medium);
   line-height: 1.2;
